@@ -1,0 +1,173 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: orangered;
+    color: #fff;
+    position: relative;
+  
+    &__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    &__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  
+    &__nav {
+      ul {
+        display: flex;
+        list-style: none;
+        position: relative;
+  
+        li {
+          margin: 0 1rem;
+          position: relative;
+  
+          a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+          }
+  
+          ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  
+            li {
+              margin: 0.5rem 0;
+  
+              a {
+                color: #333;
+                text-decoration: none;
+              }
+            }
+          }
+  
+          &:hover ul {
+            display: block;
+          }
+        }
+      }
+  
+      &--open {
+        display: block;
+        width: 100%;
+  
+        ul {
+          flex-direction: column;
+  
+          li {
+            margin: 0.5rem 0;
+  
+            ul {
+              position: static;
+              display: none;
+              width: 100%;
+              box-shadow: none;
+              padding: 0;
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  
+    &__auth-buttons {
+      .header__login,
+      .header__signup {
+        background: none;
+        border: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin: 0 0.5rem;
+        cursor: pointer;
+      }
+  
+      .header__signup {
+        background: #fff;
+        color: #ff7a18;
+        border-radius: 30px;
+      }
+    }
+  
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      padding: 1rem;
+  
+      &__logo {
+        margin-bottom: 1rem;
+      }
+  
+      &__hamburger {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+  
+      &__nav {
+        display: none;
+        width: 100%;
+        text-align: right;
+  
+        &--open {
+          display: block;
+        }
+  
+        ul {
+          flex-direction: column;
+          margin-bottom: 1rem;
+  
+          li {
+            margin: 0.5rem 0;
+  
+            a {
+              font-size: 1.2rem;
+            }
+  
+            ul {
+              display: none;
+              flex-direction: column;
+              background: #f9f9f9;
+              padding: 0.5rem;
+              border-radius: 0.5rem;
+              box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  
+              li {
+                margin: 0.5rem 0;
+  
+                a {
+                  color: #333;
+                }
+              }
+            }
+  
+            &:hover ul {
+              display: flex;
+            }
+          }
+        }
+      }
+  
+      &__auth-buttons {
+        order: 3;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  
